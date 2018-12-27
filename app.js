@@ -5,8 +5,7 @@ var express    = require("express"),
     mongoose   = require("mongoose");
     methodeOverride = require("method-override");
 
-// mongoose.connect("mongodb://localhost:27017/todos", { useNewUrlParser: true });
-mongoose.connect(process.env.MONGOLAB, { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB, { useNewUrlParser: true });
 
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -68,10 +67,10 @@ app.delete("/todo/:id", function(req, res){
 
 // 404
 app.get("*", function (req, res){
-  res.send("404 sorry we didn't find what you where looking for");
+  res.send("404 sorry we didn't find what you where looking for, go back!");
 });
 
 // Listen
-app.listen(3000, process.env.IP, function(){
+app.listen(process.env.PORT, process.env.IP, function(){
   console.log("Server has started on port 3000! Let's go!");
 });
