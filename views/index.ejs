@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- title -->
+  <title>To Do</title>
+
+  <!-- css -->
+  <link rel="stylesheet" href="./assets/css/static/styles/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="./assets/css/animated.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+
+  <!-- favicon -->
+  <link rel="icon" type="image/png" href="./assets/css/img/toDo.png" />
+
+</head>
+
+<div class="container">
+  <h2 id="introName" class="todoSmallHeader">what would you like to do in Quebec?</h2>
+  <h1 class="todoHeader">ToDo List <i class="fas fa-pencil-alt icon"></i></h1>
+
+  <form action="/addTodo" method="POST">
+    <input class="newToDo" type="text" name="newtodo" placeholder="What would you like todo?">
+  </form>
+
+
+  <ul class="toDos">
+    <% todos.forEach(function (todo){ %>
+    <li class="toDo"><span class="binIcon">
+        <form action="/todo/<%= todo._id %>?_method=DELETE" method="POST"><button class="deleteBtn"><i class="far fa-trash-alt"></i></button></form>
+      </span>
+      <%= todo.thingtodo %>
+    </li>
+    <% }) %>
+  </ul>
+
+</div>
+
+
+<!-- jQuery -->
+<script type="text/javascript" src="./assets/js/lib/jquery-3.3.1.min.js"></script>
+
+<!-- JavaScript -->
+<script src="./assets/js/javaScript.js"></script>
+
+</body>
+
+</html>
