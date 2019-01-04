@@ -29,7 +29,7 @@
 
 
   <ul class="toDos">
-    <% todos.forEach(function (todo){ %>
+    <% todos.slice().reverse().forEach(function (todo){ %>
     <li class="toDo"><span class="binIcon">
         <form action="/todo/<%= todo._id %>?_method=DELETE" method="POST"><button class="deleteBtn"><i class="far fa-trash-alt"></i></button></form>
       </span>
