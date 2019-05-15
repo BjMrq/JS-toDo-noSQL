@@ -65,6 +65,17 @@ app.delete("/todo/:id", function(req, res){
   });
 });
 
+//API
+app.get("/api/todo", function(req, res){
+  todo.find()
+  .then(function(todos){
+    res.json(todos);
+  })
+  .catch(function(err){
+    res.send(err);
+  });
+});
+
 // 404
 app.get("*", function (req, res){
   res.send("404 sorry we didn't find what you where looking for, go back!");
